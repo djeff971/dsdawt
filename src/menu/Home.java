@@ -27,13 +27,22 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher( "/Home.jsp" ).forward( request, response );
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		String[] userList = {"user1","user2","user3","user4","user4",};
+		BusinessLogic users = new BusinessLogic();
+		users.setMessage(userList);			
+		request.setAttribute("users", users);	
+		this.getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
+		
+		
+		
 	}
 
 }

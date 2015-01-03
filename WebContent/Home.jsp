@@ -24,7 +24,8 @@
 		</div>
 		<div id="navbar" class="">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">User tweet</a></li>
+				<li class="active"><a href="#">User's list</a></li>
+				<li class=""><a href="#">User tweet</a></li>
 				<li><a href="#allTweet">All tweet</a></li>
 				<li><a href="#updtate">Updtate</a></li>
 			</ul>
@@ -32,18 +33,37 @@
 		<!--/.nav-collapse -->
 	</div>
 	</nav>
-	<br/>
+	<br />
 	<div class="container">
-      <div class="page-header">
-        <h1>Contenu pour la page</h1>
-      </div>
-    </div>
-    
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Group : Doriane - Sarah - Djeffrey</p>
-      </div>
-    </footer>
+		<div class="page-header">
+			<h3>List of all users</h3>
+		</div>
+		<form method="post" action="home" enctype="multipart/form-data">
+			<input type="submit" value="Afficher" class="btn btn-lg btn-success" />
+		</form>
+		<div class="container" style="margin-top:20px;">
+		<%
+		menu.BusinessLogic users = (menu.BusinessLogic) request.getAttribute("users");
+		String[] userslist = users.getMessage();
+		for(int i = 0; i < userslist.length;++i) {
+			out.println(
+
+					"<ul>"+
+						"<li>" +
+					userslist[i] +
+						"</li>"+
+					"</ul>");
+		}
+		
+		%>
+		</div>
+	</div>
+
+	<footer class="footer">
+	<div class="container">
+		<p class="text-muted">Group : Doriane - Sarah - Djeffrey</p>
+	</div>
+	</footer>
 
 
 
