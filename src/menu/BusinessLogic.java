@@ -1,12 +1,14 @@
 package menu;
 
+import java.util.List;
+
 public class BusinessLogic {
-	private String[] message;
+	private List<String> message;
 	
-	public String[] getMessage() {
+	public List<String> getMessage() {
 		return this.message;
 	}
-	public void setMessage(String[] message){
-		this.message = message;
+	public void setMessage(List<String> list){
+		this.message = list;
 	}
 }

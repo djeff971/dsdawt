@@ -1,14 +1,22 @@
 package menu;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.MediaType;
 
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
+import java.util.Collection;
+
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 /**
@@ -17,7 +25,7 @@ import com.sun.jersey.api.client.WebResource;
 @WebServlet("/Home")
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	//Genson genson = new Genson();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,13 +48,30 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClientOperations clientop = new ClientOperations();
-		//WebResource service = clientop.getService();
-		//service.path("rest").path("res").accept(MediaType.APPLICATION_JSON).get(String.class);
+		/*ClientResponse service = clientop.getService();
+		BusinessLogic users = new BusinessLogic();*/
+		//JSONObject service;
+		try {
+			JSONObject service = clientop.getService();
+			List<String> list = new ArrayList<String>();
+			JSONArray array = service.getJSONArray("users");
+			for(int i = 0 ; i < array.length() ; i++){
+			    list.add(array.getJSONObject(i).getString("nickname"));
+			}
+			System.out.println(service);
+			
+			BusinessLogic users = new BusinessLogic();
+			users.setMessage(list);			
+			request.setAttribute("users", users);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		String[] userList = {"user1","user2","user3","user4","user4",};
+	/*	String[] userList = {"user1","user2","user3","user4","user4",};
 		BusinessLogic users = new BusinessLogic();
 		users.setMessage(userList);			
-		request.setAttribute("users", users);	
+		request.setAttribute("users", users);	*/
 		this.getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
 		
 		

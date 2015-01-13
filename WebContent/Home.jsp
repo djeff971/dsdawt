@@ -41,26 +41,30 @@
 		<form method="post" action="home" enctype="multipart/form-data">
 			<input type="submit" value="Display" class="btn btn-lg btn-success" />
 		</form>
-		<div class="container" style="margin-top:20px;">
-		<%
-		menu.BusinessLogic users = (menu.BusinessLogic) request.getAttribute("users");
-		if(users != null) {
-			String[] userslist = users.getMessage();
-			for(int i = 0; i < userslist.length;++i) {
-				out.println(
+		<div class="container" style="margin-top: 20px;">
+			<%
+				menu.BusinessLogic users = (menu.BusinessLogic) request
+						.getAttribute("users");
+				if (users != null) {
+					for (String s : users.getMessage()) {
+						out.println(
 
-						"<ul>"+
-							"<li>" +
-						userslist[i] +
-							"</li>"+
-						"</ul>");
-		} 
-		
-		}else {
-			out.println("<p>Please, push on display button.</p>");
-		}
-		
-		%>
+						"<ul>" + "<li>" + s + "</li>" + "</ul>");
+					}
+					/* 	for(int i = 0; i < users.getMessage().length;++i) {
+							out.println(
+
+									"<ul>"+
+										"<li>" +
+									userslist[i] +
+										"</li>"+
+									"</ul>");
+					}  */
+
+				} else {
+					out.println("<p>Please, push on display button.</p>");
+				}
+			%>
 		</div>
 	</div>
 

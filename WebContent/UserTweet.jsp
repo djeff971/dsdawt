@@ -46,7 +46,7 @@
 		</form>
 		<div class="container" style="margin-top:20px;">
 		<%
-		menu.BusinessLogic users = (menu.BusinessLogic) request.getAttribute("users");
+		/* menu.BusinessLogic users = (menu.BusinessLogic) request.getAttribute("users");
 		if(users != null) {
 			String[] userslist = users.getMessage();
 			for(int i = 0; i < userslist.length;++i) {
@@ -62,7 +62,7 @@
 		}else {
 			out.println("<p>Please, push on display button.</p>");
 		}
-		
+		 */
 		%>
 		</div>
 	</div>

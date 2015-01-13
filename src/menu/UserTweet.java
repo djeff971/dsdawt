@@ -35,10 +35,10 @@ public class UserTweet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String[] userList = {"user1","user2","user3","user4","user4",};
+		/*String[] userList = {"user1","user2","user3","user4","user4",};
 		BusinessLogic users = new BusinessLogic();
 		users.setMessage(userList);			
-		request.setAttribute("users", users);	
+		request.setAttribute("users", users);	*/
 		this.getServletContext().getRequestDispatcher("/UserTweet.jsp").forward(request, response);
 		
 		
