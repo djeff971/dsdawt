@@ -26,7 +26,7 @@
 			<ul class="nav navbar-nav">
 				<li class=""><a href="home">User's list</a></li>
 				<li class="active"><a href="userTweet">User tweet</a></li>
-				<li><a href="#allTweet">All tweet</a></li>
+				<li><a href="listalltweet">All tweets</a></li>
 				<li><a href="#updtate">Updtate</a></li>
 			</ul>
 		</div>
@@ -38,7 +38,7 @@
 		<div class="page-header">
 			<h3>List of all users</h3>
 		</div>
-		<form class="col-sm-12 col-md-12" method="post" action="UserTweet" enctype="multipart/form-data">
+		<form class="col-sm-12 col-md-12" method="post" action="UserTweet">
 			<label class="col-sm-12 col-md-12 raw" for="username">Username <span class="requis">*</span></label>
             <input type="text" id="username" name="username" value="" size="20" maxlength="60" />
             <br />
@@ -46,24 +46,18 @@
 		</form>
 		<div class="container" style="margin-top:20px;">
 		<%
-		/* menu.BusinessLogic users = (menu.BusinessLogic) request.getAttribute("users");
-		if(users != null) {
-			String[] userslist = users.getMessage();
-			for(int i = 0; i < userslist.length;++i) {
-				out.println(
+				menu.BusinessLogic users = (menu.BusinessLogic) request
+						.getAttribute("tweets");
+				if (users != null) {
+					for (String user : users.getMessage()) {
+						out.println(
 
-						"<ul>"+
-							"<li>" +
-						userslist[i] +
-							"</li>"+
-						"</ul>");
-		} 
-		
-		}else {
-			out.println("<p>Please, push on display button.</p>");
-		}
-		 */
-		%>
+						"<ul>" + "<li>" + user + "</li>" + "</ul>");
+					}
+				} else {
+					out.println("<p>Please, push on display button.</p>");
+				}
+			%>
 		</div>
 	</div>
 

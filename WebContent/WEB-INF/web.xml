@@ -25,4 +25,12 @@
 	<servlet-name>UserTweet</servlet-name>
 	<url-pattern>/userTweet</url-pattern>
 </servlet-mapping>
+  <servlet>
+	<servlet-name>ListAllTweet</servlet-name>
+	<servlet-class>menu.ListAllTweet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ListAllTweet</servlet-name>
+	<url-pattern>/listalltweet</url-pattern>
+</servlet-mapping>
 </web-app>

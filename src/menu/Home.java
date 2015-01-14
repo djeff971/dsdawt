@@ -48,11 +48,8 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClientOperations clientop = new ClientOperations();
-		/*ClientResponse service = clientop.getService();
-		BusinessLogic users = new BusinessLogic();*/
-		//JSONObject service;
 		try {
-			JSONObject service = clientop.getService();
+			JSONObject service = clientop.getAllUsers();
 			List<String> list = new ArrayList<String>();
 			JSONArray array = service.getJSONArray("users");
 			for(int i = 0 ; i < array.length() ; i++){
@@ -67,11 +64,6 @@ public class Home extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	/*	String[] userList = {"user1","user2","user3","user4","user4",};
-		BusinessLogic users = new BusinessLogic();
-		users.setMessage(userList);			
-		request.setAttribute("users", users);	*/
 		this.getServletContext().getRequestDispatcher("/Home.jsp").forward(request, response);
 		
 		

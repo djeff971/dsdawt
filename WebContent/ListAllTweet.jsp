@@ -24,9 +24,9 @@
 		</div>
 		<div id="navbar" class="">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="home">User's list</a></li>
-				<li class=""><a href="userTweet">User tweet</a></li>
-				<li><a href="listalltweet">All tweets</a></li>
+				<li class=""><a href="home">User's list</a></li>
+				<li><a href="userTweet">User tweet</a></li>
+				<li class="active"><a href="listalltweet">All tweets</a></li>
 				<li><a href="#updtate">Updtate</a></li>
 			</ul>
 		</div>
@@ -38,19 +38,47 @@
 		<div class="page-header">
 			<h3>List of all users</h3>
 		</div>
-		<form method="post" action="home" enctype="multipart/form-data">
-			<input type="submit" value="Display" class="btn btn-lg btn-success" />
+		<form class="col-sm-12 col-md-12" method="post" action="ListAllTweet">
+			<br /> <input type="submit" value="Retrieve"
+				class="btn btn-lg btn-success raw"
+				style="margin-top: 20px; margin-bottom: 5px;" />
 		</form>
 		<div class="container" style="margin-top: 20px;">
+			<%@page import="java.util.Set" import="java.util.Iterator"
+				import="java.util.Map"%>
 			<%
-				menu.BusinessLogic users = (menu.BusinessLogic) request
-						.getAttribute("users");
-				if (users != null) {
-					for (String user : users.getMessage()) {
+				menu.BusinessLogic informations = (menu.BusinessLogic) request
+						.getAttribute("informations");
+
+				if (informations != null) {
+					Set set = informations.getDonnees().entrySet();
+					Iterator i = set.iterator();
+					while (i.hasNext()) {
+						Map.Entry me = (Map.Entry) i.next();
+						String user = me.getKey().toString();
+						String tweet = me.getValue().toString();
+						tweet = tweet.substring(1,tweet.length()-2);
+						String[] mesTweets = tweet.split(",");
 						out.println(
 
-						"<ul>" + "<li>" + user + "</li>" + "</ul>");
+						"<ul>" + "<li>" + me.getKey() + "<ul><li>" + me.getValue()
+								+ "</li></ul></li>" + "</ul>");
 					}
+					/* String user = me.getKey().toString();
+					String tweet = me.getValue().toString();
+					tweet = tweet.substring(1,tweet.length()-2);
+					String[] mesTweets = tweet.split(",");
+					out.println("<ul>" + "<li>" + me.getKey()+"</li><ul>");
+						for(int j=0; j < mesTweets.length;j++){
+							out.println("<li>"+mesTweets[j]+"</li>");
+					}
+						out.println("</ul>"); */
+
+					/* for (String informations : informations.getDonnees()) {
+						out.println(
+
+						"<ul>" + "<li>" + informations + "</li>" + "</ul>");
+					} */
 				} else {
 					out.println("<p>Please, push on display button.</p>");
 				}
