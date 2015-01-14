@@ -25,10 +25,10 @@
 		</div>
 		<div id="navbar" class="">
 			<ul class="nav navbar-nav">
-				<li class=""><a href="home">User's list</a></li>
-				<li class="active"><a href="userTweet">User tweet</a></li>
+				<li><a href="home">User's list</a></li>
+				<li class=""><a href="userTweet">User tweet</a></li>
 				<li><a href="listalltweet">All tweets</a></li>
-				<li><a href="update">Updtate</a></li>
+				<li class="active"><a href="updtate">Update</a></li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->
@@ -37,26 +37,17 @@
 	<br />
 	<div class="container">
 		<div class="page-header">
-			<h3>Search all tweets for one user</h3>
+			<h3>Update database with default values</h3>
 		</div>
-		<form class="col-sm-12 col-md-12" method="post" action="UserTweet">
-			<label class="col-sm-12 col-md-12 raw" for="username">Username <span class="requis">*</span></label>
-            <input type="text" id="username" name="username" value="" size="20" maxlength="60" />
-            <br />
-			<input type="submit" value="Search" class="btn btn-lg btn-success raw" style="margin-top:20px;margin-bottom:5px;" />
+		<form method="post" action="update">
+			<input type="submit" value="Update" class="btn btn-lg btn-success" />
 		</form>
-		<div class="container" style="margin-top:200px;">
-		<%
-				menu.BusinessLogic users = (menu.BusinessLogic) request
-						.getAttribute("tweets");
-				if (users != null) {
-					for (String user : users.getMessage()) {
-						out.println(
-
-						"<ul>" + "<li>" + user + "</li>" + "</ul>");
-					}
-				} else {
-					out.println("<p>Please, push on display button.</p>");
+		<div class="container" style="margin-top: 20px;">
+			<%
+				menu.BusinessLogic message = (menu.BusinessLogic) request
+						.getAttribute("message");
+				if (message.getValue() == 1) {
+					out.println("<p>The database has been updated.</p>");
 				}
 			%>
 		</div>

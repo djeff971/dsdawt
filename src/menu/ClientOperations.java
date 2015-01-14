@@ -13,7 +13,6 @@ public class ClientOperations {
 		WebResource webResource = client.resource("http://localhost:8082/Awt_WebService/rest/res/getUsers");
 		String s = webResource.get(String.class);
 		JSONObject userJSON = new JSONObject("{users : "+ s + "}");
-		//JSONObject userJSON = webResource.get(JSONObject.class);
 		return userJSON;
 	
 	}
@@ -35,6 +34,10 @@ public class ClientOperations {
 	public JSONObject listAllTweet(long id, String nickname) throws JSONException{
 		JSONObject userJSON = new JSONObject("{listalltweet : }");
 		return userJSON;
+	}
+	public void update() {
+		Client client = Client.create();
+		client.resource("http://localhost:8082/Awt_WebService/rest/res/updateData");
 	}
 	
 

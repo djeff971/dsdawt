@@ -13,6 +13,7 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <script src="js/jquery.min.js" type="text/javascript"></script>
+<style>.navbar-fixed-top, .navbar-fixed-bottom {position:inherit;}</style>
 <title>Home</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
 				<li class="active"><a href="home">User's list</a></li>
 				<li class=""><a href="userTweet">User tweet</a></li>
 				<li><a href="listalltweet">All tweets</a></li>
-				<li><a href="#updtate">Updtate</a></li>
+				<li><a href="update">Updtate</a></li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

@@ -33,4 +33,12 @@
 	<servlet-name>ListAllTweet</servlet-name>
 	<url-pattern>/listalltweet</url-pattern>
 </servlet-mapping>
+  <servlet>
+	<servlet-name>Update</servlet-name>
+	<servlet-class>menu.Update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>Update</servlet-name>
+	<url-pattern>/update</url-pattern>
+</servlet-mapping>
 </web-app>
