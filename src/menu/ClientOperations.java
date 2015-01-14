@@ -52,7 +52,6 @@ public class ClientOperations {
 			InputStream input = connection.getInputStream();
 			int data = input.read();
 			while(data != -1){
-			    System.out.print((char) data);
 			    data = input.read();
 			}
 			input.close();

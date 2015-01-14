@@ -43,7 +43,6 @@ public class UserTweet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClientOperations clientop = new ClientOperations();
 		String nickname = request.getParameter("username");
-		System.out.println(nickname);
 		try {
 			if(nickname == ""){
 				nickname = "null";
@@ -54,7 +53,6 @@ public class UserTweet extends HttpServlet {
 			for(int i = 0 ; i < array.length() ; i++){
 			    list.add(array.getJSONObject(i).getString("message"));
 			}
-			System.out.println(service);
 			
 			BusinessLogic tweets = new BusinessLogic();
 			tweets.setMessage(list);			

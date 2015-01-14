@@ -55,8 +55,7 @@ public class Home extends HttpServlet {
 			for(int i = 0 ; i < array.length() ; i++){
 			    list.add(array.getJSONObject(i).getString("nickname"));
 			}
-			System.out.println(service);
-			
+
 			BusinessLogic users = new BusinessLogic();
 			users.setMessage(list);			
 			request.setAttribute("users", users);
