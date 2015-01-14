@@ -56,8 +56,6 @@ public class Update extends HttpServlet {
 		request.setAttribute("message", message);
 		this.getServletContext().getRequestDispatcher("/Update.jsp").forward(request, response);
 		
-		
-		
 	}
 
 }

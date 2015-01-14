@@ -28,7 +28,7 @@
 				<li><a href="home">User's list</a></li>
 				<li class=""><a href="userTweet">User tweet</a></li>
 				<li><a href="listalltweet">All tweets</a></li>
-				<li class="active"><a href="updtate">Update</a></li>
+				<li class="active"><a href="update">Update</a></li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->
