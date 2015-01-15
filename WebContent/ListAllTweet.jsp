@@ -62,24 +62,9 @@
 						String[] mesTweets = tweet.split(",");
 						out.println(
 
-						"<ul>" + "<li>" + me.getKey() + "<ul><li>" + me.getValue()
-								+ "</li></ul></li>" + "</ul>");
+						"<ul>" + "<li><h4>" + me.getKey() + "</h4><ul>" + me.getValue().toString()
+								+ "</br></ul></li>" + "</ul>");
 					}
-					/* String user = me.getKey().toString();
-					String tweet = me.getValue().toString();
-					tweet = tweet.substring(1,tweet.length()-2);
-					String[] mesTweets = tweet.split(",");
-					out.println("<ul>" + "<li>" + me.getKey()+"</li><ul>");
-						for(int j=0; j < mesTweets.length;j++){
-							out.println("<li>"+mesTweets[j]+"</li>");
-					}
-						out.println("</ul>"); */
-
-					/* for (String informations : informations.getDonnees()) {
-						out.println(
-
-						"<ul>" + "<li>" + informations + "</li>" + "</ul>");
-					} */
 				} else {
 					out.println("<p>Please, push on display button.</p>");
 				}

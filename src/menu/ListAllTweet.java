@@ -46,33 +46,24 @@ public class ListAllTweet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClientOperations clientop = new ClientOperations();
 		try {
-			HashMap<String, List<String>> donnees = new HashMap<String, List<String>>();
+			//HashMap<String, List<String>> donnees = new HashMap<String, List<String>>();
+			HashMap<String,String> donnees = new HashMap<String, String>();
 			JSONObject getUsers = clientop.getAllUsers();
 			List<String> listofusers = new ArrayList<String>();
 			JSONArray array = getUsers.getJSONArray("users");
 			for(int i = 0 ; i < array.length() ; i++){
 				listofusers.add(array.getJSONObject(i).getString("nickname"));
-				//Collé ici
-				List<String> listoftweets = new ArrayList<String>();
+				//List<String> listoftweets = new ArrayList<String>();
+				String listoftweets = "";
 				JSONObject getTweet = clientop.getTweets(array.getJSONObject(i).getString("nickname"));
 				JSONArray arrayoftweets = getTweet.getJSONArray("tweets");
 				for(int j = 0 ; j < arrayoftweets.length() ; j++){
-					listoftweets.add(arrayoftweets.getJSONObject(j).getString("message"));
+					//listoftweets.add(arrayoftweets.getJSONObject(j).getString("message"));
+					listoftweets += "<li>" + arrayoftweets.getJSONObject(j).getString("message") + "</li></br>";
 					donnees.put(array.getJSONObject(i).getString("nickname"), listoftweets);
 				}
-				//fin collé
-				
 			}
-			/*List<String> listoftweets = new ArrayList<String>();
-			for(String user : listofusers) {
-				JSONObject getTweet = clientop.getTweets(user);
-				JSONArray arrayoftweets = getTweet.getJSONArray("tweets");
-				for(int j = 0 ; j < arrayoftweets.length() ; j++){
-					listoftweets.add(arrayoftweets.getJSONObject(j).getString("message"));
-					donnees.put(user, listoftweets);
-				}
-			}*/
-			
+			//.substring(1, me.getValue().toString().length()-1)
 			BusinessLogic informations = new BusinessLogic();
 			informations.setDonnees(donnees);			
 			request.setAttribute("informations", informations);

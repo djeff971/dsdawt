@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BusinessLogic {
 	private List<String> message;
-	private HashMap donnees;
+	private HashMap<String, String> donnees;
 	private int value;
 	
 	public List<String> getMessage() {
@@ -15,12 +15,18 @@ public class BusinessLogic {
 		this.message = list;
 	}
 	
-	public HashMap<String, List<String>> getDonnees() {
+/*	public HashMap<String, List<String>> getDonnees() {
 		return this.donnees;
 	}
 	public void setDonnees(HashMap<String, List<String>> donnees) {
 		this.donnees = donnees;
+	}*/
+	public HashMap<String, String> getDonnees() {
+		return this.donnees;
 	}
+	public void setDonnees(HashMap<String, String> donnees) {
+		this.donnees = donnees;
+	}	
 	public int getValue() {
 		return this.value;
 	}
